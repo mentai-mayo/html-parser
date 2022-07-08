@@ -1,11 +1,12 @@
 
 import endTag from "./endTag.mjs";
+import comment from "./comment.mjs";
 import startTag from "./startTag.mjs";
 import innerText from "./innerText.mjs";
 import doctypeDefine from "./doctypeDefine.mjs";
 
 export type HTMLToken = {
-  type: 'start' | 'end' | 'text' | 'doctype';
+  type: 'start' | 'end' | 'text' | 'doctype' | 'comment';
   dtd?: { root: string } | { root: string, specifier: 'system', uri: string } | { root: string, specifier: 'public', ident: string, uri: string };
   value?: string;
   tagName?: string;
@@ -28,6 +29,7 @@ export function parse(source: string): HTMLToken[]{
     result.token = null;
 
     // tokenize
+    if(!result.token) result = comment(source, result.cursor);
     if(!result.token) result = endTag(source, result.cursor);
     if(!result.token) result = startTag(source, result.cursor);
     if(!result.token) result = innerText(source, result.cursor);
