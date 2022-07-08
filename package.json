@@ -1,0 +1,32 @@
+{
+  "name": "html-parser",
+  "version": "1.0.0",
+  "description": "typescriptで簡易的なHTMLパーサ",
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "typescript": "^4.7.4",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "scripts": {
+    "build": "npx tsc",
+    "build:webpack": "npx webpack --entry ./webpack.entry.mjs --mode production",
+    "test": "npx tsc ./test.mts --outDir ./ --module es2022 ; node test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mentai-mayo/html-parser.git"
+  },
+  "keywords": [
+    "typescript",
+    "webpack",
+    "html"
+  ],
+  "author": "mentai-mayo",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/mentai-mayo/html-parser/issues"
+  },
+  "homepage": "https://github.com/mentai-mayo/html-parser#readme",
+  "type": "module"
+}

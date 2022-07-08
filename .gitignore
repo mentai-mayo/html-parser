@@ -1,0 +1,5 @@
+_*
+dist
+tsbuild
+test.mjs
+node_modules
